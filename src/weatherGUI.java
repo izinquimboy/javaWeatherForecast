@@ -65,7 +65,16 @@ public class weatherGUI extends JFrame{
         weatherConditionImg.setBounds(-50, 40, 450, 300);
         add(weatherConditionImg);
 
+        JLabel weatherDesc = new JLabel();
+        weatherDesc.setText("Cloudy");
+        weatherDesc.setFont(new Font("SansSerif", Font.BOLD, 50));
+        weatherDesc.setBounds(350, -20, 600, 300);
+        add(weatherDesc);
 
+        JLabel tempText = new JLabel("100°F");
+        tempText.setFont(new Font("Monospaced", Font.PLAIN, 21));
+        tempText.setBounds(400, -20, 600, 300);
+        add(tempText);
 
         search.addActionListener(new ActionListener() {
 
