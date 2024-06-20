@@ -51,12 +51,12 @@ public class weatherGUI extends JFrame{
 
         JLabel text = new JLabel();
         text.setBounds(10, 20, 651, 50);
-        text.setText("Enter\n " + "Location: ");
+        text.setText("Enter Location: ");
         text.setFont(new Font("SansSerif", Font.BOLD, 24));
         add(text);
         
         JTextField searchText = new JTextField();
-        searchText.setBounds(190, 20, 540, 50);
+        searchText.setBounds(200, 20, 530, 50);
         searchText.setFont(new Font("Dialog", Font.PLAIN, 24));
         add(searchText);
 
@@ -101,15 +101,70 @@ public class weatherGUI extends JFrame{
         humidText.setBounds(320,105, 600, 300);
         add(humidText);
 
+        JLabel locationText = new JLabel("New York");
+        locationText.setFont(new Font("SansSerif", Font.BOLD, 30));
+        locationText.setBounds(550, -105, 225, 400);
+        locationText.setHorizontalAlignment(JLabel.CENTER);
+        add(locationText);
+
+        JLabel timeText = new JLabel("14:00 | 6/20/24");
+        timeText.setFont(new Font("SansSerif", Font.PLAIN, 15));
+        timeText.setBounds(550, -80, 225, 400);
+        timeText.setHorizontalAlignment(JLabel.CENTER);
+        add(timeText);
+
         JPanel daily = new JPanel();
-        daily.setBounds(550, 150, 225, 400);
+        daily.setLayout(null);
+        daily.setBounds(550, 140, 225, 410);
         daily.setBackground(new Color(198, 204, 207));
         add(daily);
+
+        JLabel daily1cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/clear.png", 60, 50));
+        daily1cond.setBounds(67, 10, 60, 50);
+        daily.add(daily1cond);
+        
+        JLabel daily1date = new JLabel("6/21");
+        daily1date.setFont(new Font("SansSerif", Font.BOLD, 20));
+        daily1date.setBounds(12, 10, 60, 50);
+        daily.add(daily1date);
+
+        JLabel daily1temp = new JLabel("<html><b>100°F</b>/88°F</html>");
+        daily1temp.setFont(new Font("SansSerif", Font.PLAIN, 15));
+        daily1temp.setBounds(135, 10, 100, 50);
+        daily.add(daily1temp);
+
+        JSeparator daily1Sep = new JSeparator();
+        daily1Sep.setBounds(5, 65, 215, 20);
+        daily1Sep.setBackground(new Color(0, 0, 0));
+        daily.add(daily1Sep);
+
+
+
+        JLabel daily2cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/rain.png", 60, 50));
+        daily2cond.setBounds(67, 85, 60, 50);
+        daily.add(daily2cond);
+        
+        JLabel daily2date = new JLabel("6/22");
+        daily2date.setFont(new Font("SansSerif", Font.BOLD, 20));
+        daily2date.setBounds(12, 85, 60, 50);
+        daily.add(daily2date);
+
+        JLabel daily2temp = new JLabel("<html><b>93°F</b>/81°F</html>");
+        daily2temp.setFont(new Font("SansSerif", Font.PLAIN, 15));
+        daily2temp.setBounds(135, 85, 100, 50);
+        daily.add(daily2temp);
+
+        JSeparator daily2Sep = new JSeparator();
+        daily2Sep.setBounds(5, 140, 215, 20);
+        daily2Sep.setBackground(new Color(0, 0, 0));
+        daily.add(daily2Sep);
 
         JPanel hourly = new JPanel();
         hourly.setBounds(20, 320, 510, 230);
         hourly.setBackground(new Color(198, 204, 207));
         add(hourly);
+
+
 
         search.addActionListener(new ActionListener() {
 
@@ -132,5 +187,13 @@ public class weatherGUI extends JFrame{
         }
         System.out.print("Could not find file");
         return null;
+    }
+
+    private ImageIcon resizeImage(String path, int width, int height) {
+        ImageIcon ImageIcon = loadImage(path);
+        Image image = ImageIcon.getImage();
+        Image newimg = image.getScaledInstance(width, height,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        ImageIcon newImage = new ImageIcon(newimg);
+        return newImage;
     }
 }
