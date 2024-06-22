@@ -121,51 +121,78 @@ public class weatherGUI extends JFrame{
 
         JLabel daily1cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/clear.png", 60, 50));
         daily1cond.setBounds(67, 10, 60, 50);
-        daily.add(daily1cond);
-        
         JLabel daily1date = new JLabel("6/21");
         daily1date.setFont(new Font("SansSerif", Font.BOLD, 20));
         daily1date.setBounds(12, 10, 60, 50);
-        daily.add(daily1date);
-
         JLabel daily1temp = new JLabel("<html><b>100°F</b>/88°F</html>");
         daily1temp.setFont(new Font("SansSerif", Font.PLAIN, 15));
         daily1temp.setBounds(135, 10, 100, 50);
-        daily.add(daily1temp);
-
         JSeparator daily1Sep = new JSeparator();
         daily1Sep.setBounds(5, 65, 215, 20);
         daily1Sep.setBackground(new Color(0, 0, 0));
-        daily.add(daily1Sep);
-
-
-
+        
         JLabel daily2cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/rain.png", 60, 50));
         daily2cond.setBounds(67, 85, 60, 50);
-        daily.add(daily2cond);
-        
         JLabel daily2date = new JLabel("6/22");
         daily2date.setFont(new Font("SansSerif", Font.BOLD, 20));
         daily2date.setBounds(12, 85, 60, 50);
-        daily.add(daily2date);
-
         JLabel daily2temp = new JLabel("<html><b>93°F</b>/81°F</html>");
         daily2temp.setFont(new Font("SansSerif", Font.PLAIN, 15));
         daily2temp.setBounds(135, 85, 100, 50);
-        daily.add(daily2temp);
-
         JSeparator daily2Sep = new JSeparator();
         daily2Sep.setBounds(5, 140, 215, 20);
         daily2Sep.setBackground(new Color(0, 0, 0));
+
+        JLabel daily3cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/snow.png", 60, 50));
+        daily3cond.setBounds(67, 160, 60, 50);
+        JLabel daily3date = new JLabel("6/23");
+        daily3date.setFont(new Font("SansSerif", Font.BOLD, 20));
+        daily3date.setBounds(12, 160, 60, 50);
+        JLabel daily3temp = new JLabel("<html><b>43°F</b>/21°F</html>");
+        daily3temp.setFont(new Font("SansSerif", Font.PLAIN, 15));
+        daily3temp.setBounds(135, 160, 100, 50);
+        JSeparator daily3Sep = new JSeparator();
+        daily3Sep.setBounds(5, 220, 215, 20);
+        daily3Sep.setBackground(new Color(0, 0, 0));
+
+        JLabel daily4cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/windspeed.png", 60, 50));
+        daily4cond.setBounds(67, 235, 60, 50);
+        JLabel daily4date = new JLabel("6/24");
+        daily4date.setFont(new Font("SansSerif", Font.BOLD, 20));
+        daily4date.setBounds(12, 235, 60, 50);
+        JLabel daily4temp = new JLabel("<html><b>63°F</b>/51°F</html>");
+        daily4temp.setFont(new Font("SansSerif", Font.PLAIN, 15));
+        daily4temp.setBounds(135, 235, 100, 50);
+        JSeparator daily4Sep = new JSeparator();
+        daily4Sep.setBounds(5, 300, 215, 20);
+        daily4Sep.setBackground(new Color(0, 0, 0));
+        
+        daily.add(daily1cond);
+        daily.add(daily1date);
+        daily.add(daily1temp);
+        daily.add(daily1Sep);
+        daily.add(daily2cond);
+        daily.add(daily2date);
+        daily.add(daily2temp);
         daily.add(daily2Sep);
+        daily.add(daily3cond);
+        daily.add(daily3date);
+        daily.add(daily3temp);
+        daily.add(daily3Sep);
+        daily.add(daily4cond);
+        daily.add(daily4date);
+        daily.add(daily4temp);
+        daily.add(daily4Sep);
+
+
 
         JPanel hourly = new JPanel();
         hourly.setBounds(20, 320, 510, 230);
         hourly.setBackground(new Color(198, 204, 207));
         add(hourly);
+        
 
-
-
+         
         search.addActionListener(new ActionListener() {
 
             @Override
