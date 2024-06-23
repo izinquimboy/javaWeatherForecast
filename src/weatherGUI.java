@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class weatherGUI extends JFrame{
-    //private JSONObject weatherData;
+    private JSONObject weatherData;
     
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable(){
@@ -329,8 +329,16 @@ public class weatherGUI extends JFrame{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
-                throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+                String userInput = search.getText();
+
+                // validate input - remove whitespace to ensure non-empty text
+                if(userInput.replaceAll("\\s", "").length() <= 0){
+                    return;
+                }
+
+                weatherData = weatherApp.getWeatherData(userInput);
+                
+
             }
             
         });
