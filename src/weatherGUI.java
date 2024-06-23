@@ -2,6 +2,12 @@
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import netscape.javascript.JSObject;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -60,12 +66,12 @@ public class weatherGUI extends JFrame{
         searchText.setFont(new Font("Dialog", Font.PLAIN, 24));
         add(searchText);
 
-        JButton search = new JButton(loadImage("javaWeatherForecast/src/assets/search.png"));
+        JButton search = new JButton(loadImage("src/assets/search.png"));
         search.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         search.setBounds(732, 22, 50, 45);
-        add(search);
+        
 
-        JLabel weatherConditionImg = new JLabel(loadImage("javaWeatherForecast/src/assets/cloudy.png"));
+        JLabel weatherConditionImg = new JLabel(resizeImage("src/assets/clear.png", 170, 150));
         weatherConditionImg.setBounds(-60, 20, 450, 300);
         add(weatherConditionImg);
 
@@ -75,9 +81,9 @@ public class weatherGUI extends JFrame{
         tempText.setBounds(310, -30, 600, 300);
         add(tempText);
 
-        JLabel weatherDesc = new JLabel("Cloudy", SwingConstants.CENTER);
+        JLabel weatherDesc = new JLabel("Clear", SwingConstants.CENTER);
         weatherDesc.setFont(new Font("SansSerif", Font.BOLD, 40));
-        weatherDesc.setBounds(10, 108, 300, 300);
+        weatherDesc.setBounds(10, 120, 300, 300);
         weatherDesc.setHorizontalAlignment(JLabel.CENTER);
         add(weatherDesc);
 
@@ -119,7 +125,7 @@ public class weatherGUI extends JFrame{
         daily.setBackground(new Color(198, 204, 207));
         add(daily);
 
-        JLabel daily1cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/clear.png", 50, 40));
+        JLabel daily1cond = new JLabel(resizeImage("src/assets/clear.png", 50, 40));
         daily1cond.setBounds(67, 45, 60, 50);
         JLabel daily1date = new JLabel("6/21");
         daily1date.setFont(new Font("SansSerif", Font.BOLD, 20));
@@ -131,7 +137,7 @@ public class weatherGUI extends JFrame{
         daily1Sep.setBounds(5, 100, 215, 20);
         daily1Sep.setBackground(new Color(0, 0, 0));
         
-        JLabel daily2cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/rain.png", 50, 40));
+        JLabel daily2cond = new JLabel(resizeImage("src/assets/rain.png", 50, 40));
         daily2cond.setBounds(67, 115, 60, 50);
         JLabel daily2date = new JLabel("6/22");
         daily2date.setFont(new Font("SansSerif", Font.BOLD, 20));
@@ -143,7 +149,7 @@ public class weatherGUI extends JFrame{
         daily2Sep.setBounds(5, 170, 215, 20);
         daily2Sep.setBackground(new Color(0, 0, 0));
 
-        JLabel daily3cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/snow.png", 50, 40));
+        JLabel daily3cond = new JLabel(resizeImage("src/assets/snow.png", 50, 40));
         daily3cond.setBounds(67, 190, 60, 50);
         JLabel daily3date = new JLabel("6/23");
         daily3date.setFont(new Font("SansSerif", Font.BOLD, 20));
@@ -155,7 +161,7 @@ public class weatherGUI extends JFrame{
         daily3Sep.setBounds(5, 250, 215, 20);
         daily3Sep.setBackground(new Color(0, 0, 0));
 
-        JLabel daily4cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/windspeed.png", 50, 40));
+        JLabel daily4cond = new JLabel(resizeImage("src/assets/windspeed.png", 50, 40));
         daily4cond.setBounds(67, 270, 60, 50);
         JLabel daily4date = new JLabel("6/24");
         daily4date.setFont(new Font("SansSerif", Font.BOLD, 20));
@@ -167,7 +173,7 @@ public class weatherGUI extends JFrame{
         daily4Sep.setBounds(5, 330, 215, 20);
         daily4Sep.setBackground(new Color(0, 0, 0));
         
-        JLabel daily5cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/clear.png", 50, 40));
+        JLabel daily5cond = new JLabel(resizeImage("src/assets/clear.png", 50, 40));
         daily5cond.setBounds(67, 350, 60, 50);
         JLabel daily5date = new JLabel("6/25");
         daily5date.setFont(new Font("SansSerif", Font.BOLD, 20));
@@ -212,7 +218,7 @@ public class weatherGUI extends JFrame{
         hourly1time.setBounds(13, 15, 75, 70);
         hourly1time.setHorizontalAlignment(SwingConstants.CENTER);
         hourly1time.setFont(new Font("SansSerif", Font.BOLD,20));
-        JLabel hourly1cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/clear.png", 70, 60));
+        JLabel hourly1cond = new JLabel(resizeImage("src/assets/clear.png", 70, 60));
         hourly1cond.setBounds(13, 65, 75, 80);
         hourly1time.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel hourly1desc = new JLabel("Clear");
@@ -231,7 +237,7 @@ public class weatherGUI extends JFrame{
         hourly2time.setBounds(113, 15, 75, 70);
         hourly2time.setHorizontalAlignment(SwingConstants.CENTER);
         hourly2time.setFont(new Font("SansSerif", Font.BOLD,20));
-        JLabel hourly2cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/cloudy.png", 70, 60));
+        JLabel hourly2cond = new JLabel(resizeImage("src/assets/cloudy.png", 70, 60));
         hourly2cond.setBounds(113, 65, 75, 80);
         hourly2time.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel hourly2desc = new JLabel("Cloudy");
@@ -250,7 +256,7 @@ public class weatherGUI extends JFrame{
         hourly3time.setBounds(213, 15, 75, 70);
         hourly3time.setHorizontalAlignment(SwingConstants.CENTER);
         hourly3time.setFont(new Font("SansSerif", Font.BOLD,20));
-        JLabel hourly3cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/rain.png", 70, 60));
+        JLabel hourly3cond = new JLabel(resizeImage("src/assets/rain.png", 70, 60));
         hourly3cond.setBounds(213, 65, 75, 80);
         hourly3time.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel hourly3desc = new JLabel("Rain");
@@ -269,7 +275,7 @@ public class weatherGUI extends JFrame{
         hourly4time.setBounds(313, 15, 75, 70);
         hourly4time.setHorizontalAlignment(SwingConstants.CENTER);
         hourly4time.setFont(new Font("SansSerif", Font.BOLD,20));
-        JLabel hourly4cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/snow.png", 70, 60));
+        JLabel hourly4cond = new JLabel(resizeImage("src/assets/snow.png", 70, 60));
         hourly4cond.setBounds(313, 65, 75, 80);
         hourly4time.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel hourly4desc = new JLabel("Snow");
@@ -288,7 +294,7 @@ public class weatherGUI extends JFrame{
         hourly5time.setBounds(413, 15, 75, 70);
         hourly5time.setHorizontalAlignment(SwingConstants.CENTER);
         hourly5time.setFont(new Font("SansSerif", Font.BOLD,20));
-        JLabel hourly5cond = new JLabel(resizeImage("javaWeatherForecast/src/assets/windspeed.png", 70, 60));
+        JLabel hourly5cond = new JLabel(resizeImage("src/assets/windspeed.png", 70, 60));
         hourly5cond.setBounds(413, 65, 75, 80);
         hourly5time.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel hourly5desc = new JLabel("Windy");
@@ -329,19 +335,43 @@ public class weatherGUI extends JFrame{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                String userInput = search.getText();
-
+                String userInput = searchText.getText();
+        
                 // validate input - remove whitespace to ensure non-empty text
                 if(userInput.replaceAll("\\s", "").length() <= 0){
                     return;
                 }
 
                 weatherData = weatherApp.getWeatherData(userInput);
-                
+                JSONArray locationData = weatherApp.getLocationData(userInput);
+                JSONObject location = (JSONObject) locationData.get(0);
+                String name = (String) location.get("name");
+                locationText.setText(name);
 
+                double currentTemp = (double) weatherData.get("current_temp");
+                tempText.setText(currentTemp + "°F");
+
+                String currentCond = (String) weatherData.get("current_weather_code");
+                weatherConditionImg.setIcon(weatherCond(currentCond));
+
+                String currentDesc = (String) weatherData.get("current_weather_code");
+                weatherDesc.setText(currentDesc);
+
+                double currentAppar = (double) weatherData.get("apparent_temp");
+                feelsLikeText.setText("<html><b>Feels like</b> " + currentAppar + "°F</html>");
+
+                double currentPrecip = (double) weatherData.get("current_precipitation");
+                precipText.setText("<html><b>Preciptation </b>" + currentPrecip + "in</html>");
+
+                double currentWind = (double) weatherData.get("current_wind");
+                windText.setText("<html><b>Wind Speed </b>"+ currentWind + "mph</html>");
+
+                long currentHumid = (long) weatherData.get("current_humidity");
+                humidText.setText("<html><b>Humidity </b>" + currentHumid + "%</html>");
             }
             
         });
+        add(search);
     }   
 
     private ImageIcon loadImage(String path) {
@@ -362,5 +392,19 @@ public class weatherGUI extends JFrame{
         Image newimg = image.getScaledInstance(width, height,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
         ImageIcon newImage = new ImageIcon(newimg);
         return newImage;
+    }
+
+    private ImageIcon weatherCond(String condition) {
+        switch(condition) {
+            case "Clear":
+                return loadImage("src/assets/clear.png");
+            case "Cloudy":
+                return loadImage("src/assets/cloudy.png");
+            case "Rain":
+                return loadImage("src/assets/rain.png");
+            case "Snow":
+                return loadImage("src/assets/snow.png");
+            }
+        return null; //no cond found
     }
 }
