@@ -28,7 +28,7 @@ public class weatherApp {
                                 "2m,apparent_temperature,precipitation,weather_code,wind_speed_10m&h" +
                                 "ourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperatu" +
                                 "re_2m_min,uv_index_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_uni" +
-                                "t=inch&timezone" + timezone;
+                                "t=inch&timezone=" + timezone;
         
 
         try {
@@ -231,10 +231,11 @@ public class weatherApp {
 
     private static int findIndexOfCurrentTime(JSONArray timeList){
         String currentTime = getCurrentTime();
-
+        //String hour = currentTime.substring(11,13);
         // iterate through the time list and see which one matches our current time
         for(int i = 0; i < timeList.size(); i++){
             String time = (String) timeList.get(i);
+            ///String target = time.substring(11, 13);
             if(time.equalsIgnoreCase(currentTime)){
                 // return the index
                 return i;
@@ -244,7 +245,7 @@ public class weatherApp {
         return 0;
     }
 
-    private static String getCurrentTime(){
+    public static String getCurrentTime(){
         // get current date and time
         LocalDateTime currentDateTime = LocalDateTime.now();
 

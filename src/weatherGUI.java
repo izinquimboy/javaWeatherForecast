@@ -14,6 +14,8 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class weatherGUI extends JFrame{
     private JSONObject weatherData;
@@ -352,7 +354,7 @@ public class weatherGUI extends JFrame{
                 tempText.setText(currentTemp + "°F");
 
                 String currentCond = (String) weatherData.get("current_weather_code");
-                weatherConditionImg.setIcon(weatherCond(currentCond));
+                weatherConditionImg.setIcon(weatherCond(currentCond, 170, 150));
 
                 String currentDesc = (String) weatherData.get("current_weather_code");
                 weatherDesc.setText(currentDesc);
@@ -368,6 +370,124 @@ public class weatherGUI extends JFrame{
 
                 long currentHumid = (long) weatherData.get("current_humidity");
                 humidText.setText("<html><b>Humidity </b>" + currentHumid + "%</html>");
+
+                String dateTime = (String) weatherData.get("current_time");
+                String month = dateTime.substring(5,7);
+                String year = dateTime.substring(2,4);
+                String day = dateTime.substring(8, 10);
+                String time = dateTime.substring(11);
+
+                timeText.setText(time + " | " + month + "/" + day + "/" + year);
+
+                double day1Hi = (double) weatherData.get("first_day_high");
+                double day1Lo = (double) weatherData.get("first_day_low");
+                daily1temp.setText("<html><b>"+ day1Hi + "°F</b>/"+ day1Lo + "°F</html>");
+
+                double day2Hi = (double) weatherData.get("second_day_high");
+                double day2Lo = (double) weatherData.get("second_day_low");
+                daily2temp.setText("<html><b>"+ day2Hi + "°F</b>/"+ day2Lo + "°F</html>");
+
+                double day3Hi = (double) weatherData.get("third_day_high");
+                double day3Lo = (double) weatherData.get("third_day_low");
+                daily3temp.setText("<html><b>"+ day3Hi + "°F</b>/"+ day3Lo + "°F</html>");
+
+                double day4Hi = (double) weatherData.get("fourth_day_high");
+                double day4Lo = (double) weatherData.get("fourth_day_low");
+                daily4temp.setText("<html><b>"+ day4Hi + "°F</b>/"+ day4Lo + "°F</html>");
+
+                double day5Hi = (double) weatherData.get("fifth_day_high");
+                double day5Lo = (double) weatherData.get("fifth_day_low");
+                daily5temp.setText("<html><b>"+ day5Hi + "°F</b>/"+ day5Lo + "°F</html>");
+
+                String day1cond = (String) weatherData.get("first_day_code");
+                daily1cond.setIcon(weatherCond(day1cond, 50, 40));
+
+                String day2cond = (String) weatherData.get("second_day_code");
+                daily2cond.setIcon(weatherCond(day2cond, 50, 40));
+
+                String day3cond = (String) weatherData.get("third_day_code");
+                daily3cond.setIcon(weatherCond(day3cond, 50, 40));
+
+                String day4cond = (String) weatherData.get("fourth_day_code");
+                daily4cond.setIcon(weatherCond(day4cond, 50, 40));
+
+                String day5cond = (String) weatherData.get("fifth_day_code");
+                daily5cond.setIcon(weatherCond(day5cond, 50, 40));
+
+                String date1 = (String) weatherData.get("first_day");
+                String month1 = date1.substring(5,7);
+                String day1 = date1.substring(8, 10); 
+                daily1date.setText(month1 + "/" + day1);
+
+                String date2 = (String) weatherData.get("second_day");
+                String month2 = date2.substring(5,7);
+                String day2 = date2.substring(8, 10); 
+                daily2date.setText(month2 + "/" + day2);
+
+                String date3 = (String) weatherData.get("third_day");
+                String month3 = date3.substring(5,7);
+                String day3 = date3.substring(8, 10); 
+                daily3date.setText(month3 + "/" + day3);
+
+                String date4 = (String) weatherData.get("fourth_day");
+                String month4 = date4.substring(5,7);
+                String day4 = date4.substring(8, 10); 
+                daily4date.setText(month4 + "/" + day4);
+
+                String date5 = (String) weatherData.get("fifth_day");
+                String month5 = date5.substring(5,7);
+                String day5 = date5.substring(8, 10); 
+                daily5date.setText(month5 + "/" + day5);
+
+                double hour1temp = (double) weatherData.get("first_hour_temp");
+                hourly1temp.setText(hour1temp + "°F");
+
+                double hour2temp = (double) weatherData.get("second_hour_temp");
+                hourly2temp.setText(hour2temp + "°F");
+
+                double hour3temp = (double) weatherData.get("third_hour_temp");
+                hourly3temp.setText(hour3temp + "°F");
+
+                double hour4temp = (double) weatherData.get("fourth_hour_temp");
+                hourly4temp.setText(hour4temp + "°F");
+
+                double hour5temp = (double) weatherData.get("fifth_hour_temp");
+                hourly5temp.setText(hour5temp + "°F");
+
+                String hour1Code = (String) weatherData.get("first_hour_code");
+                hourly1desc.setText(hour1Code);
+                hourly1cond.setIcon(weatherCond(hour1Code, 70, 60));
+
+                String hour2Code = (String) weatherData.get("second_hour_code");
+                hourly2desc.setText(hour2Code);
+                hourly2cond.setIcon(weatherCond(hour2Code, 70, 60));
+
+                String hour3Code = (String) weatherData.get("third_hour_code");
+                hourly3desc.setText(hour3Code);
+                hourly3cond.setIcon(weatherCond(hour3Code, 70, 60));
+
+                String hour4Code = (String) weatherData.get("fourth_hour_code");
+                hourly4desc.setText(hour4Code);
+                hourly4cond.setIcon(weatherCond(hour4Code, 70, 60));
+
+                String hour5Code = (String) weatherData.get("fifth_hour_code");
+                hourly5desc.setText(hour5Code);
+                hourly5cond.setIcon(weatherCond(hour5Code, 70, 60));
+
+                String hour1 = (String) weatherData.get("first_hour");
+                hourly1time.setText(hour1.substring(11));
+
+                String hour2 = (String) weatherData.get("second_hour");
+                hourly2time.setText(hour2.substring(11));
+
+                String hour3 = (String) weatherData.get("third_hour");
+                hourly3time.setText(hour3.substring(11));
+
+                String hour4 = (String) weatherData.get("fourth_hour");
+                hourly4time.setText(hour4.substring(11));
+
+                String hour5 = (String) weatherData.get("fifth_hour");
+                hourly5time.setText(hour5.substring(11));
             }
             
         });
@@ -394,16 +514,16 @@ public class weatherGUI extends JFrame{
         return newImage;
     }
 
-    private ImageIcon weatherCond(String condition) {
+    private ImageIcon weatherCond(String condition, int x, int y) {
         switch(condition) {
             case "Clear":
-                return loadImage("src/assets/clear.png");
+                return resizeImage("src/assets/clear.png", x, y);
             case "Cloudy":
-                return loadImage("src/assets/cloudy.png");
+                return resizeImage("src/assets/cloudy.png", x, y);
             case "Rain":
-                return loadImage("src/assets/rain.png");
+                return resizeImage("src/assets/rain.png", x, y);
             case "Snow":
-                return loadImage("src/assets/snow.png");
+                return resizeImage("src/assets/snow.png", x, y);
             }
         return null; //no cond found
     }
