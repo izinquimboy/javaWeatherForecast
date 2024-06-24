@@ -43,10 +43,8 @@ public class weatherGUI extends JFrame{
 
         setSize(800, 600);
 
-        //setLocationRelativeTo(null);
-        setAlwaysOnTop(true);
-        setLocation(1100, 100);
-
+        setLocationRelativeTo(null);
+        
         setLayout(null);
 
         setResizable(false);
