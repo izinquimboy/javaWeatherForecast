@@ -222,7 +222,7 @@ public class weatherGUI extends JFrame{
         hourly1desc.setHorizontalAlignment(SwingConstants.CENTER);
         hourly1desc.setFont(new Font("SansSerif", Font.BOLD,20));
         JLabel hourly1temp = new JLabel("95°F");
-        hourly1temp.setBounds(13, 150, 75, 70);
+        hourly1temp.setBounds(8, 150, 100, 70);
         hourly1temp.setHorizontalAlignment(SwingConstants.CENTER);
         hourly1temp.setFont(new Font("SansSerif", Font.PLAIN, 20));
         JSeparator hourly1sep = new JSeparator(JSeparator.VERTICAL);
@@ -241,7 +241,7 @@ public class weatherGUI extends JFrame{
         hourly2desc.setHorizontalAlignment(SwingConstants.CENTER);
         hourly2desc.setFont(new Font("SansSerif", Font.BOLD,20));
         JLabel hourly2temp = new JLabel("90°F");
-        hourly2temp.setBounds(113, 150, 75, 70);
+        hourly2temp.setBounds(108, 150, 100, 70);
         hourly2temp.setHorizontalAlignment(SwingConstants.CENTER);
         hourly2temp.setFont(new Font("SansSerif", Font.PLAIN, 20));
         JSeparator hourly2sep = new JSeparator(JSeparator.VERTICAL);
@@ -260,7 +260,7 @@ public class weatherGUI extends JFrame{
         hourly3desc.setHorizontalAlignment(SwingConstants.CENTER);
         hourly3desc.setFont(new Font("SansSerif", Font.BOLD,20));
         JLabel hourly3temp = new JLabel("85°F");
-        hourly3temp.setBounds(213, 150, 75, 70);
+        hourly3temp.setBounds(208, 150, 100, 70);
         hourly3temp.setHorizontalAlignment(SwingConstants.CENTER);
         hourly3temp.setFont(new Font("SansSerif", Font.PLAIN, 20));
         JSeparator hourly3sep = new JSeparator(JSeparator.VERTICAL);
@@ -279,7 +279,7 @@ public class weatherGUI extends JFrame{
         hourly4desc.setHorizontalAlignment(SwingConstants.CENTER);
         hourly4desc.setFont(new Font("SansSerif", Font.BOLD,20));
         JLabel hourly4temp = new JLabel("35°F");
-        hourly4temp.setBounds(313, 150, 75, 70);
+        hourly4temp.setBounds(308, 150, 100, 70);
         hourly4temp.setHorizontalAlignment(SwingConstants.CENTER);
         hourly4temp.setFont(new Font("SansSerif", Font.PLAIN, 20));
         JSeparator hourly4sep = new JSeparator(JSeparator.VERTICAL);
@@ -298,7 +298,7 @@ public class weatherGUI extends JFrame{
         hourly5desc.setHorizontalAlignment(SwingConstants.CENTER);
         hourly5desc.setFont(new Font("SansSerif", Font.BOLD,20));
         JLabel hourly5temp = new JLabel("65°F");
-        hourly5temp.setBounds(413, 150, 75, 70);
+        hourly5temp.setBounds(408, 150, 100, 70);
         hourly5temp.setHorizontalAlignment(SwingConstants.CENTER);
         hourly5temp.setFont(new Font("SansSerif", Font.PLAIN, 20));
 
